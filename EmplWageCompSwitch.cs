@@ -13,18 +13,22 @@ namespace EmployeeWageComputation
         const int isPartTime = 2;
         const int emplHourlyRate = 20;
         const int totalWorkingDays = 20;
+        const int totalWorkingHours = 100;
 
         int emplHours = 0;
+        int totalEmplHours = 0;
         int emplWage = 0;
         int totalEmplWage = 0;
+        int totatDaysCount = 0;
 
         Random NumRandom = new Random();
 
-        //Method containing logic to find the wage of an employee for the duration of a month
+        //Method containing logic to find the total wage of an employee for the duration of a month or hours amounting to 100
         public void CalculateEmployeeWage()
         {
-            for(int i = 0; i < totalWorkingDays; i++)
+            while(totalEmplHours <= totalWorkingHours && totatDaysCount < totalWorkingDays )
             {
+                totatDaysCount++;
                 int num = NumRandom.Next(0, 3);
                 //Console.WriteLine(num);
 
@@ -42,13 +46,16 @@ namespace EmployeeWageComputation
                         emplHours = 0;
                         break;
                 }
-                emplWage = emplHours * emplHourlyRate;
-                totalEmplWage = totalEmplWage + emplWage;
-                Console.WriteLine("Day: {0}",i+1);
-                Console.WriteLine("Daily Employee Wage : "+emplWage);
+                totalEmplHours = totalEmplHours + emplHours;
+                //emplWage = emplHours * emplHourlyRate;
+                //totalEmplWage = totalEmplWage + emplWage;
+                Console.WriteLine("Day Count: {0}", totatDaysCount);
+                Console.WriteLine("Daily Employee Hours : "+emplHours);
                 Console.WriteLine("");
             }
-            Console.WriteLine("THe Total Monthly Wage of the Employee is : {0}", totalEmplWage);
+            totalEmplWage = totalEmplHours * emplHourlyRate;
+            Console.WriteLine("totalEmplHours : {0}", totalEmplHours);
+            Console.WriteLine("The Total Wage of the Employee is : {0}", totalEmplWage);
         }
     }
 }
