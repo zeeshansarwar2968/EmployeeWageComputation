@@ -47,7 +47,6 @@ namespace EmployeeWageComputation
             else
             {
                 emplHours = 0;
-
             }
 
             emplWage = emplHours * emplHourlyRate;
