@@ -8,10 +8,9 @@ namespace EmployeeWageComputation
 {
     public class EmplWageComputation
     {
-        //Initialising variables to store the boolean value of an employees presence
-        bool IsPresent;
-
+        //Initialising constant and empty variables to store values
         int isFullTime = 1;
+        int isPartTime = 2;
         int emplHourlyRate = 20;
 
         int emplHours = 0;
@@ -34,21 +33,24 @@ namespace EmployeeWageComputation
             }
         }
 
-        //Method containing logic to find the wage of an employee if they are full time
+        //Method containing logic to find the wage of an employee if they are fulltime/parttime
         public void CalculateEmployeeWage()
         {
-            int num = NumRandom.Next(0, 2);
+            int num = NumRandom.Next(0, 3);
             Console.WriteLine(num);
 
             if (num == isFullTime)
             {
                 emplHours = 8;
             }
+            else if (num == isPartTime)
+            {
+                emplHours = 4;
+            }
             else
             {
                 emplHours = 0;
             }
-
             emplWage = emplHours * emplHourlyRate;
             Console.WriteLine("THe Wage of the Employee is : {0}",emplWage);
         }
