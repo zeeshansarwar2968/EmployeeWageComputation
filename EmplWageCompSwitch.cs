@@ -20,16 +20,16 @@ namespace EmployeeWageComputation
         public int totalEmplHours = 0;
         //int emplWage = 0;
         public int totalEmplWage = 0;
-        public int totatDaysCount = 0;
+        public int totalDaysCount = 0;
 
         Random NumRandom = new Random();
 
         //Method containing logic to find the total wage of an employee for the duration of a month or hours amounting to 100
         public void CalculateEmployeeWage()
         {
-            while(totalEmplHours <= totalWorkingHours && totatDaysCount < totalWorkingDays )
+            while(totalEmplHours <= totalWorkingHours && totalDaysCount < totalWorkingDays )
             {
-                totatDaysCount++;
+                totalDaysCount++;
                 int num = NumRandom.Next(0, 3);
                 //Console.WriteLine(num);
 
@@ -50,7 +50,7 @@ namespace EmployeeWageComputation
                 totalEmplHours = totalEmplHours + emplHours;
                 //emplWage = emplHours * emplHourlyRate;
                 //totalEmplWage = totalEmplWage + emplWage;
-                Console.WriteLine("Day Count: {0}", totatDaysCount);
+                Console.WriteLine("Day Count: {0}", totalDaysCount);
                 Console.WriteLine("Daily Employee Hours : "+emplHours);
                 Console.WriteLine("");
             }
