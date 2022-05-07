@@ -8,18 +8,19 @@ namespace EmployeeWageComputation
 {
     public class EmplWageCompSwitch
     {
-        //Initialising constant and empty variables to store values
-        const int isFullTime = 1;
-        const int isPartTime = 2;
-        const int emplHourlyRate = 20;
-        const int totalWorkingDays = 20;
-        const int totalWorkingHours = 100;
+        //Initialising constant variables to store values for use in logic design
+        public const int isFullTime = 1;
+        public const int isPartTime = 2;
+        public const int emplHourlyRate = 20;
+        public const int totalWorkingDays = 20;
+        public const int totalWorkingHours = 100;
 
-        int emplHours = 0;
-        int totalEmplHours = 0;
-        int emplWage = 0;
-        int totalEmplWage = 0;
-        int totatDaysCount = 0;
+        //Initialising global variables to store initial values for use in logic design
+        public int emplHours = 0;
+        public int totalEmplHours = 0;
+        //int emplWage = 0;
+        public int totalEmplWage = 0;
+        public int totatDaysCount = 0;
 
         Random NumRandom = new Random();
 
@@ -54,7 +55,7 @@ namespace EmployeeWageComputation
                 Console.WriteLine("");
             }
             totalEmplWage = totalEmplHours * emplHourlyRate;
-            Console.WriteLine("totalEmplHours : {0}", totalEmplHours);
+            Console.WriteLine("total count of hours worked by Employee : {0}", totalEmplHours);
             Console.WriteLine("The Total Wage of the Employee is : {0}", totalEmplWage);
         }
     }

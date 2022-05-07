@@ -8,17 +8,17 @@ namespace EmployeeWageComputation
 {
     public class EmplWageComputation
     {
-        //Initialising constant and empty variables to store values
-        int isFullTime = 1;
-        int isPartTime = 2;
-        int emplHourlyRate = 20;
+        //Initialising constant variables to store values for use in logic design
+        public const int isFullTime = 1;
+        public const int isPartTime = 2;
+        public const int emplHourlyRate = 20;
 
-        int emplHours = 0;
-        int emplWage = 0;
+        public int emplHours = 0;
+        public int emplWage = 0;
 
         Random NumRandom = new Random();
 
-        //Method containing logic to find the presence of employee
+        //Initialising global variables to store initial values for use in logic design
         public void CheckEmployeePresence()
         {
             int num = NumRandom.Next(0,2);
