@@ -15,3 +15,5 @@ UC4:    Solve the above using Case Statement
 UC5:    Calculating Wages for a month
 
 UC6:    Conditional Calculation of wages
+
+UC7:    Refactor the Code to write a Class Method to Compute Employee Wage
