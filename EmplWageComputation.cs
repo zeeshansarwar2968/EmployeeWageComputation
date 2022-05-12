@@ -6,53 +6,54 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageComputation
 {
-    public class EmplWageComputation
+    public class EmplWageCompSwitch
     {
         //Initialising constant variables to store values for use in logic design
-        public const int isFullTime = 1;
-        public const int isPartTime = 2;
-        public const int emplHourlyRate = 20;
+        public const int IS_FULL_TIME = 1;
+        public const int IS_PART_TIME = 2;
+        public const int EMPL_HOURLY_RATE = 20;
+        public const int TOTAL_WORKING_DAYS = 20;
+        public const int TOTAL_WORKING_HOURS = 100;
 
-        public int emplHours = 0;
-        public int emplWage = 0;
 
-        Random NumRandom = new Random();
-
-        //Initialising global variables to store initial values for use in logic design
-        public void CheckEmployeePresence()
+        //Static Method containing logic to find the total wage of an employee for the duration of a month or hours amounting to 100
+        public static void CalculateEmployeeWage()
         {
-            int num = NumRandom.Next(0,2);
-            Console.WriteLine(num);
+            //Initialising variables to store initial values for use in logic calculation
+            int emplHours = 0, totalEmplWage = 0, totalDaysCount = 0, totalEmplHours = 0;
+            //Initialising Random class instance
+            Random NumRandom = new Random();
 
-            if(num == isFullTime)
+            while (totalEmplHours <= TOTAL_WORKING_HOURS && totalDaysCount < TOTAL_WORKING_DAYS)
             {
-                Console.WriteLine("Employee is Present");
-            }else
-            {
-                Console.WriteLine("Employee is Absent");
-            }
-        }
+                totalDaysCount++;
+                int num = NumRandom.Next(0, 3);
 
-        //Method containing logic to find the wage of an employee if they are fulltime/parttime
-        public void CalculateEmployeeWage()
-        {
-            int num = NumRandom.Next(0, 3);
-            Console.WriteLine(num);
+                switch (num)
+                {
+                    case IS_FULL_TIME:
+                        emplHours = 8;
+                        break;
 
-            if (num == isFullTime)
-            {
-                emplHours = 8;
+                    case IS_PART_TIME:
+                        emplHours = 4;
+                        break;
+
+                    default:
+                        emplHours = 0;
+                        break;
+                }
+                totalEmplHours += emplHours;
+                //Displaying daycount and employee hours for each iteration
+                Console.WriteLine("Day Count: {0}", totalDaysCount);
+                Console.WriteLine("Daily Employee Hours : " + emplHours);
+                Console.WriteLine("");
             }
-            else if (num == isPartTime)
-            {
-                emplHours = 4;
-            }
-            else
-            {
-                emplHours = 0;
-            }
-            emplWage = emplHours * emplHourlyRate;
-            Console.WriteLine("THe Wage of the Employee is : {0}",emplWage);
+            totalEmplWage = totalEmplHours * EMPL_HOURLY_RATE;
+
+            //Displaying total employee hours and wage
+            Console.WriteLine("total count of hours worked by Employee : {0}", totalEmplHours);
+            Console.WriteLine("The Total Wage of the Employee is : {0}", totalEmplWage);
         }
     }
 }

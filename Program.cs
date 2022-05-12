@@ -7,10 +7,9 @@ namespace EmployeeWageComputation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Employee Wage Computation Program");
-        
-            EmplWageCompSwitch emplWageCompSwitch = new EmplWageCompSwitch();
-            emplWageCompSwitch.CalculateEmployeeWage();
-            
+
+            EmplWageCompSwitch.CalculateEmployeeWage();
+
             Console.ReadKey();
         }
     }
