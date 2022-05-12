@@ -9,37 +9,33 @@ namespace EmployeeWageComputation
     public class EmplWageCompSwitch
     {
         //Initialising constant variables to store values for use in logic design
-        public const int isFullTime = 1;
-        public const int isPartTime = 2;
-        public const int emplHourlyRate = 20;
-        public const int totalWorkingDays = 20;
-        public const int totalWorkingHours = 100;
+        public const int IS_FULL_TIME = 1;
+        public const int IS_PART_TIME = 2;
+        public const int EMPL_HOURLY_RATE = 20;
+        public const int TOTAL_WORKING_DAYS = 20;
+        public const int TOTAL_WORKING_HOURS = 100;
 
-        //Initialising global variables to store initial values for use in logic design
-        public int emplHours = 0;
-        public int totalEmplHours = 0;
-        //int emplWage = 0;
-        public int totalEmplWage = 0;
-        public int totalDaysCount = 0;
-
+        //Initialising Random class instance
         Random NumRandom = new Random();
 
         //Method containing logic to find the total wage of an employee for the duration of a month or hours amounting to 100
         public void CalculateEmployeeWage()
         {
-            while(totalEmplHours <= totalWorkingHours && totalDaysCount < totalWorkingDays )
+            //Initialising variables to store initial values for use in logic calculation
+            int emplHours = 0, totalEmplWage = 0, totalDaysCount = 0, totalEmplHours = 0;
+
+            while(totalEmplHours <= TOTAL_WORKING_HOURS && totalDaysCount < TOTAL_WORKING_DAYS)
             {
                 totalDaysCount++;
                 int num = NumRandom.Next(0, 3);
-                //Console.WriteLine(num);
 
                 switch (num)
                 {
-                    case isFullTime:
+                    case IS_FULL_TIME:
                         emplHours = 8;
                         break;
 
-                    case isPartTime:
+                    case IS_PART_TIME:
                         emplHours = 4;
                         break;
 
@@ -47,14 +43,15 @@ namespace EmployeeWageComputation
                         emplHours = 0;
                         break;
                 }
-                totalEmplHours = totalEmplHours + emplHours;
-                //emplWage = emplHours * emplHourlyRate;
-                //totalEmplWage = totalEmplWage + emplWage;
+                totalEmplHours += emplHours;
+                //Displaying daycount and employee hours for each iteration
                 Console.WriteLine("Day Count: {0}", totalDaysCount);
                 Console.WriteLine("Daily Employee Hours : "+emplHours);
                 Console.WriteLine("");
             }
-            totalEmplWage = totalEmplHours * emplHourlyRate;
+            totalEmplWage = totalEmplHours * EMPL_HOURLY_RATE;
+
+            //Displaying total employee hours and wage
             Console.WriteLine("total count of hours worked by Employee : {0}", totalEmplHours);
             Console.WriteLine("The Total Wage of the Employee is : {0}", totalEmplWage);
         }
