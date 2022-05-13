@@ -17,3 +17,5 @@ UC5:    Calculating Wages for a month
 UC6:    Conditional Calculation of wages
 
 UC7:    Refactor the Code to write a Class Method to Compute Employee Wage
+
+UC8:    Compute Employee Wage for multiple companies
