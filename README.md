@@ -19,3 +19,5 @@ UC6:    Conditional Calculation of wages
 UC7:    Refactor the Code to write a Class Method to Compute Employee Wage
 
 UC8:    Compute Employee Wage for multiple companies
+
+UC9:    Ability to save the total wage for each Company
