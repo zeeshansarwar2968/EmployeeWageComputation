@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageComputation
 {
+    public interface IComputeEmpWage
+    {
+        public void addCompanyEmpWage(string companyName, int emplHourlyRate, int totalWorkingDays, int totalWorkingHours);
+
+        public void CalculateEmployeeWage();
+
+    }
     public class CompanyEmpWage
     {
         public string companyName;
@@ -33,7 +40,7 @@ namespace EmployeeWageComputation
             return "The Total Wage of the Employee of Firm "+ this.companyName + " is : " + this.totalEmpWage;
         }
     }
-    public class EmpWageBuilderArray
+    public class EmpWageBuilderArray : IComputeEmpWage
     {
         //Initialising constant variables to store values for use in logic design
         public const int IS_FULL_TIME = 1;

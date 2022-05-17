@@ -23,3 +23,5 @@ UC8:    Compute Employee Wage for multiple companies
 UC9:    Ability to save the total wage for each Company
 
 UC10:   Ability to manage Employee Wage of multiple companies
+
+UC11:   Ability to manage Employee Wage of multiple companies using Interface Approach
