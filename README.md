@@ -25,3 +25,9 @@ UC9:    Ability to save the total wage for each Company
 UC10:   Ability to manage Employee Wage of multiple companies
 
 UC11:   Ability to manage Employee Wage of multiple companies using Interface Approach
+
+UC12:   Refactor to have list of multiple companies to manage Employee Wage.
+
+UC13:   Store the Daily Wage along with the Total Wage.
+
+UC14:   Ability to get the Total Wage when queried by Company.
