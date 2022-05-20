@@ -28,6 +28,7 @@ namespace EmployeeWageComputation
             this.emplHourlyRate = emplHourlyRate;
             this.totalWorkingDays = totalWorkingDays;
             this.totalWorkingHours = totalWorkingHours;
+            this.totalEmpWage = 0;
         }
 
         public void setTotalEmpWage(int totalEmpWage)
@@ -40,34 +41,35 @@ namespace EmployeeWageComputation
             return "The Total Wage of the Employee of Firm "+ this.companyName + " is : " + this.totalEmpWage;
         }
     }
-    public class EmpWageBuilderArray : IComputeEmpWage
+    public class EmpWageBuilder : IComputeEmpWage
     {
         //Initialising constant variables to store values for use in logic design
         public const int IS_FULL_TIME = 1;
         public const int IS_PART_TIME = 2;
 
-        private int companyCount = 0;
-        private CompanyEmpWage[] companyEmpWageArray;
+        //private int companyCount = 0;
+        private LinkedList<CompanyEmpWage> companyEmpWagesList;
+        //private CompanyEmpWage[] companyEmpWageArray;
 
         //Default constructor
-        public EmpWageBuilderArray()
+        public EmpWageBuilder()
         {
-            this.companyEmpWageArray = new CompanyEmpWage[10];
+            this.companyEmpWagesList = new LinkedList<CompanyEmpWage>();
         }
 
 
         public void addCompanyEmpWage(string companyName, int emplHourlyRate, int totalWorkingDays, int totalWorkingHours)
         {
-            companyEmpWageArray[this.companyCount] = new CompanyEmpWage(companyName, emplHourlyRate, totalWorkingDays, totalWorkingHours);
-            companyCount++;
+            CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, emplHourlyRate, totalWorkingDays, totalWorkingHours);
+            this.companyEmpWagesList.AddLast(companyEmpWage);
         }
 
         public void CalculateEmployeeWage()
         {
-            for (int i = 0; i < companyCount; i++)
+            foreach (CompanyEmpWage companyEmpWage in this.companyEmpWagesList)
             {
-                companyEmpWageArray[i].setTotalEmpWage(this.CalculateEmployeeWage(this.companyEmpWageArray[i]));
-                Console.WriteLine(this.companyEmpWageArray[i].printWage());
+                companyEmpWage.setTotalEmpWage(this.CalculateEmployeeWage(companyEmpWage));
+                Console.WriteLine(companyEmpWage.printWage());
             }
         }
         //Instance Method containing logic to find the total wage of an employee for the duration of a month or hours whose values are provided by the user
