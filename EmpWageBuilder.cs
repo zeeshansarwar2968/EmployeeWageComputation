@@ -35,7 +35,7 @@ namespace EmployeeWageComputation
             this.totalEmpWage = totalEmpWage;
         }
 
-        public string toPrint()
+        public string printWage()
         {
             return "The Total Wage of the Employee of Firm "+ this.companyName + " is : " + this.totalEmpWage;
         }
@@ -67,7 +67,7 @@ namespace EmployeeWageComputation
             for (int i = 0; i < companyCount; i++)
             {
                 companyEmpWageArray[i].setTotalEmpWage(this.CalculateEmployeeWage(this.companyEmpWageArray[i]));
-                Console.WriteLine(this.companyEmpWageArray[i].toPrint());
+                Console.WriteLine(this.companyEmpWageArray[i].printWage());
             }
         }
         //Instance Method containing logic to find the total wage of an employee for the duration of a month or hours whose values are provided by the user
