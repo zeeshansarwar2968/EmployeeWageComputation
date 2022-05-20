@@ -41,7 +41,7 @@ namespace EmployeeWageComputation
             return "The Total Wage of the Employee of Firm "+ this.companyName + " is : " + this.totalEmpWage;
         }
     }
-    public class EmpWageBuilder : IComputeEmpWage
+    public class EmployeeWageBuilder : IComputeEmpWage
     {
         //Initialising constant variables to store values for use in logic design
         public const int IS_FULL_TIME = 1;
@@ -49,12 +49,14 @@ namespace EmployeeWageComputation
 
         //private int companyCount = 0;
         private LinkedList<CompanyEmpWage> companyEmpWagesList;
+        private Dictionary<string, CompanyEmpWage> mapCompanytowage;
         //private CompanyEmpWage[] companyEmpWageArray;
 
         //Default constructor
-        public EmpWageBuilder()
+        public EmployeeWageBuilder()
         {
             this.companyEmpWagesList = new LinkedList<CompanyEmpWage>();
+            this.mapCompanytowage = new Dictionary<string, CompanyEmpWage>();
         }
 
 
@@ -62,6 +64,7 @@ namespace EmployeeWageComputation
         {
             CompanyEmpWage companyEmpWage = new CompanyEmpWage(companyName, emplHourlyRate, totalWorkingDays, totalWorkingHours);
             this.companyEmpWagesList.AddLast(companyEmpWage);
+            this.mapCompanytowage.Add(companyName, companyEmpWage);
         }
 
         public void CalculateEmployeeWage()
@@ -69,7 +72,7 @@ namespace EmployeeWageComputation
             foreach (CompanyEmpWage companyEmpWage in this.companyEmpWagesList)
             {
                 companyEmpWage.setTotalEmpWage(this.CalculateEmployeeWage(companyEmpWage));
-                Console.WriteLine(companyEmpWage.printWage());
+                //Console.WriteLine(companyEmpWage.printWage());
             }
         }
         //Instance Method containing logic to find the total wage of an employee for the duration of a month or hours whose values are provided by the user
@@ -110,6 +113,11 @@ namespace EmployeeWageComputation
             //Displaying total employee hours and wage
             //Console.WriteLine("total count of hours worked by Employee : {0}", totalEmplHours);
             //Console.WriteLine("The Total Wage of the Employee of Firm {1}  is : {0}", totalEmplWage, companyName);
+        }
+
+        public int displayTotalEmpWage(string companyName)
+        {
+            return this.mapCompanytowage[companyName].totalEmpWage;
         }
     }
 }

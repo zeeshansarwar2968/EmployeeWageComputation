@@ -13,11 +13,13 @@ namespace EmployeeWageComputation
             Console.WriteLine("---------------------------------------------------------");
 
             //Using the addCompanyEmpWage method of the EmpWageBuilderArray class to operate on the provided inputs and calulating the wage of an employee
-            EmpWageBuilder empWageBuilder = new EmpWageBuilder();
+            EmployeeWageBuilder empWageBuilder = new EmployeeWageBuilder();
             empWageBuilder.addCompanyEmpWage("Tesco",20,20,100);
             empWageBuilder.addCompanyEmpWage("Tesla",20,20,100);
 
             empWageBuilder.CalculateEmployeeWage();
+            Console.WriteLine("---------------------------------------------------------");
+            Console.WriteLine("total wage of an employee for Tesla is : {0}",empWageBuilder.displayTotalEmpWage("Tesla"));
             Console.WriteLine("---------------------------------------------------------");
 
             Console.ReadKey();
